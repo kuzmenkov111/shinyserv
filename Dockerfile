@@ -119,7 +119,9 @@ RUN  R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RColorBrewer', repos='https://cran.r-project.org/')" \ 
 && R -e "install.packages('shinyWidgets', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('shinyjqui', repos='https://cran.r-project.org/')"  \
-&& R -e "install.packages('collapsibleTree', repos='https://cran.r-project.org/')" 
+&& R -e "install.packages('collapsibleTree', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/shinyURL')\""
+
 
 #COPY shiny-server.conf /etc/init/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
