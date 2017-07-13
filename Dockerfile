@@ -120,7 +120,8 @@ RUN  R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('shinyWidgets', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('shinyjqui', repos='https://cran.r-project.org/')"  \
 && R -e "install.packages('collapsibleTree', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/shinyURL')\""
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/shinyURL')\"" \
+&& R -e "install.packages('RCurl', repos='https://cran.r-project.org/')" 
 
 
 #COPY shiny-server.conf /etc/init/shiny-server.conf
