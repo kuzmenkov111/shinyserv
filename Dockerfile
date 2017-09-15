@@ -85,7 +85,8 @@ COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
 
 RUN sudo R CMD javareconf
 
-RUN  R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
+# basic shiny functionality
+RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggplot2', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('reshape', repos='https://cran.r-project.org/')" \
@@ -126,11 +127,14 @@ RUN  R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RColorBrewer', repos='https://cran.r-project.org/')" \ 
 && R -e "install.packages('shinyWidgets', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('shinyjqui', repos='https://cran.r-project.org/')"  \
-&& R -e "install.packages('collapsibleTree', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/shinyURL')\"" \
+&& R -e "install.packages('collapsibleTree', repos='https://cran.r-project.org/')"  \
+#&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/shinyURL')\"" \
 && R -e "install.packages('RCurl', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('shinycssloaders', repos='https://cran.r-project.org/')" \
-&& sudo R -e "install.packages('ReporteRs', repos='https://cran.r-project.org/')"
+#&& sudo R -e "install.packages('ReporteRs', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('officer', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('flextable', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
 
 
 #COPY shiny-server.conf /etc/init/shiny-server.conf
@@ -144,4 +148,3 @@ EXPOSE 3838
 
 
 CMD ["/sbin/my_init"]
-
