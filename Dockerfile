@@ -87,9 +87,6 @@ RUN chmod +x /etc/service/shiny-server/run  \
     && sed -i '113 a <h2><a href="./examples/">Other examples of Shiny application</a> </h2>' /srv/shiny-server/index.html
 
     
-
-RUN sudo R CMD javareconf
-
 # basic shiny functionality
 RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
