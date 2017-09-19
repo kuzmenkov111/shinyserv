@@ -72,7 +72,6 @@ RUN wget https://www.dropbox.com/s/hl0vx1f6rpfgxrx/shiny-server-1.5.3.838-amd64.
           && mkdir -p  /srv/shiny-server/examples; sync  
    # && rm -rf /var/lib/apt/lists/*
 
-#COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
 
 RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
