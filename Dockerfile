@@ -88,7 +88,9 @@ RUN chmod +x /etc/service/shiny-server/run  \
     
 
 # basic shiny functionality
-RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
+RUN  R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
+RUN R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggplot2', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('reshape', repos='https://cran.r-project.org/')" \
@@ -110,7 +112,8 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggrepel', repos='https://cran.r-project.org/')" \
 #RUN R -e "install.packages('leaflet', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('visNetwork', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('highcharter', version = '0.5.0', repos = 'https://cran.r-project.org/')\"" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/highcharter')\"" \
+#&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('highcharter', version = '0.5.0', repos = 'https://cran.r-project.org/')\"" \
 #RUN R -e "download.file(url = 'http://cran.r-project.org/src/contrib/Archive/highcharter/highcharter_0.3.0.tar.gz', destfile = 'highcharter_0.3.0.tar.gz')"
 #RUN R -e "install.packages(pkgs='highcharter_0.3.0.tar.gz', type='source', repos=NULL)"
 #RUN R -e "unlink('highcharter_0.3.0.tar.gz')"
