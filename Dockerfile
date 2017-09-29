@@ -58,6 +58,7 @@ RUN apt-get update && apt-get install -y \
     libpcre3-dev\
     libbz2-dev \
     liblzma-dev \
+    libnlopt-dev \
     build-essential
 
 COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
