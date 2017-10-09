@@ -30,7 +30,6 @@ RUN rm microsoft-r-open-3.3.2.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
 
-
 # system libraries of general use
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -58,16 +57,15 @@ RUN apt-get update && apt-get install -y \
     libpcre3-dev\
     libbz2-dev \
     liblzma-dev \
-    libnlopt-dev \
     build-essential
 
 COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
 
+#wget https://www.dropbox.com/s/hl0vx1f6rpfgxrx/shiny-server-1.5.3.838-amd64.deb?dl=1 -O shiny-server-1.5.3.838-amd64.deb
 
-
-RUN wget https://www.dropbox.com/s/hl0vx1f6rpfgxrx/shiny-server-1.5.3.838-amd64.deb?dl=1 -O shiny-server-1.5.3.838-amd64.deb \
-&& dpkg -i --force-depends shiny-server-1.5.3.838-amd64.deb \
-          && rm shiny-server-1.5.3.838-amd64.deb && \
+RUN wget https://www.dropbox.com/s/zjydeqye63dm7ra/shiny-server-1.5.5.872-amd64.deb?dl=1 -O shiny-server-1.5.5.872-amd64.deb \
+&& dpkg -i --force-depends shiny-server-1.5.5.872-amd64.deb \
+          && rm shiny-server-1.5.5.872-amd64.deb && \
     R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cran.rstudio.com/')" \
           && mkdir -p /srv/shiny-server; sync  \
           && mkdir -p  /srv/shiny-server/examples; sync  
@@ -92,7 +90,6 @@ RUN chmod +x /etc/service/shiny-server/run  \
 # basic shiny functionality
 RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('purrr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggplot2', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('reshape', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('curl', repos='https://cran.r-project.org/')" \
@@ -141,7 +138,9 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('officer', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('flextable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('raster', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('digest', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
+
 
 #COPY shiny-server.conf /etc/init/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
