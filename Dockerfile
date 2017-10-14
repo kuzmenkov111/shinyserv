@@ -111,6 +111,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggrepel', repos='https://cran.r-project.org/')" \
 #RUN R -e "install.packages('leaflet', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('visNetwork', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('purrr', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/highcharter')\"" \
 #&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('highcharter', version = '0.5.0', repos = 'https://cran.r-project.org/')\"" \
 #RUN R -e "download.file(url = 'http://cran.r-project.org/src/contrib/Archive/highcharter/highcharter_0.3.0.tar.gz', destfile = 'highcharter_0.3.0.tar.gz')"
