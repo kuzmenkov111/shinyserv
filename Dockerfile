@@ -141,6 +141,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('flextable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('raster', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('digest', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('bcrypt', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
 
 
