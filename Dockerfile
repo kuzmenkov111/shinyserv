@@ -148,7 +148,11 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 #COPY shiny-server.conf /etc/init/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
  && chown -R shiny:shiny /var/lib/shiny-server/bookmarks
- 
+
+RUN sudo rm -rf /srv/shiny-server/sample-apps \
+&& rm -rf /srv/shiny-server/
+
+
 #volume for Shiny Apps and static assets. Here is the folder for index.html(link) and sample apps.
 VOLUME /srv/shiny-server
 EXPOSE 3838
