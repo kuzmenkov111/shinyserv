@@ -127,7 +127,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('daattali/timevis')\""\
 && R -e "install.packages('shinythemes', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('fst', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('fst', version = '0.7.2', repos = 'https://cran.r-project.org/')\"" \
 && R -e "install.packages('leaflet.minicharts', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RColorBrewer', repos='https://cran.r-project.org/')" \ 
 && R -e "install.packages('shinyWidgets', repos='https://cran.r-project.org/')" \
@@ -145,7 +145,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
 
 
-#COPY shiny-server.conf /etc/init/shiny-server.conf
+COPY shiny-server.conf /etc/init/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
  && chown -R shiny:shiny /var/lib/shiny-server/bookmarks
 
