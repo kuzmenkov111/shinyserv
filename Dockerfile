@@ -145,7 +145,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
 
 
-COPY shiny-server.conf /etc/init/shiny-server.conf
+COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
  && chown -R shiny:shiny /var/lib/shiny-server/bookmarks
 
