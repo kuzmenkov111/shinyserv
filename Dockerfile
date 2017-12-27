@@ -90,13 +90,13 @@ RUN chmod +x /etc/service/shiny-server/run  \
 
 # basic shiny functionality
 RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
-&& R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggplot2', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('reshape', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('curl', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('httr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
+&& R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('car', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('fmsb', repos='https://cran.r-project.org/')" \
