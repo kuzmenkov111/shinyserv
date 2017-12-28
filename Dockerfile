@@ -128,7 +128,8 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('daattali/timevis')\""\
 && R -e "install.packages('shinythemes', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('fst', version = '0.7.2', repos = 'https://cran.r-project.org/')\"" \
+&& R -e "install.packages('fst', repos='https://cran.r-project.org/')" \
+#&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_version('fst', version = '0.7.2', repos = 'https://cran.r-project.org/')\"" \
 && R -e "install.packages('leaflet.minicharts', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RColorBrewer', repos='https://cran.r-project.org/')" \ 
 && R -e "install.packages('shinyWidgets', repos='https://cran.r-project.org/')" \
