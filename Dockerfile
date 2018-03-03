@@ -64,7 +64,8 @@ RUN apt-get update && apt-get install -y \
     libnlopt-dev \
     build-essential \
     
-RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+RUN sudo apt-get install -y software-properties-common \
+add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 	apt-get update -y \
 	apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
 
