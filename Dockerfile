@@ -64,10 +64,10 @@ RUN apt-get update && apt-get install -y \
     libnlopt-dev \
     build-essential
     
-RUN sudo apt-get install -y software-properties-common \
-&& add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
-	&& apt-get update -y \
-	 && apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
+RUN apt-get update
+RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 
