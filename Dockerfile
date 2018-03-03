@@ -67,10 +67,10 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
-RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
+RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
-
+# libproj-de
 #wget https://www.dropbox.com/s/hl0vx1f6rpfgxrx/shiny-server-1.5.3.838-amd64.deb?dl=1 -O shiny-server-1.5.3.838-amd64.deb
 
 RUN wget https://www.dropbox.com/s/zjydeqye63dm7ra/shiny-server-1.5.5.872-amd64.deb?dl=1 -O shiny-server-1.5.5.872-amd64.deb \
