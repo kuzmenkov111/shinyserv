@@ -62,7 +62,11 @@ RUN apt-get update && apt-get install -y \
     libbz2-dev \
     liblzma-dev \
     libnlopt-dev \
-    build-essential
+    build-essential \
+    
+RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+	apt-get update -y \
+	apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 
@@ -150,7 +154,9 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('raster', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('digest', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('bcrypt', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\""
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\"" \
+&& R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('mapview', repos='https://cran.r-project.org/')" 
 
 
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
