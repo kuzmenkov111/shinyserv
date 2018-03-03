@@ -65,9 +65,9 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     
 RUN sudo apt-get install -y software-properties-common \
-add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
-	apt-get update -y \
-	apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
+&& add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+	&& apt-get update -y \
+	 && apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-de
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 
