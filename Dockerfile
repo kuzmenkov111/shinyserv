@@ -160,6 +160,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mapview', repos='https://cran.r-project.org/')" 
 
 
+
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN mkdir /var/lib/shiny-server/bookmarks \
  && chown -R shiny:shiny /var/lib/shiny-server/bookmarks
