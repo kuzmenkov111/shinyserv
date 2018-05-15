@@ -68,6 +68,7 @@ RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
+RUN sudo apt-get install openjdk-7-jre
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 # libproj-de
@@ -157,7 +158,9 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('bcrypt', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\"" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('mapview', repos='https://cran.r-project.org/')" 
+&& R -e "install.packages('mapview', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('rJAVA', repos='https://cran.r-project.org/')" \
+&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-7-openjdk-amd64/jre/'); install.packages('mailR', repos='https://cran.r-project.org/')"
 
 
 
