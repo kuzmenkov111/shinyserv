@@ -70,7 +70,7 @@ RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 
-RUN sudo apt-get install sudo add-apt-repository ppa:webupd8team/java
+RUN sudo add-apt-repository -y ppa:webupd8team/java
 RUN sudo apt-get update
 RUN sudo apt-get install -y oracle-java8-installer
 RUN sudo apt-get install -y oracle-java8-set-default
