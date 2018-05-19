@@ -71,9 +71,8 @@ RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev
 
 
 RUN sudo add-apt-repository -y ppa:webupd8team/java
-RUN sudo apt-get update
-RUN sudo apt-get install -y oracle-java8-installer
-RUN sudo apt-get install -y oracle-java8-set-default
+RUN sudo apt-get update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer
+#RUN sudo apt-get install -y oracle-java8-set-default
 
 COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 # libproj-de
