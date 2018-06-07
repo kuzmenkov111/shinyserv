@@ -111,6 +111,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('curl', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('httr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
+&& R -e "options(unzip = 'internal'); devtools::install_github('rstudio/httpuv')" \
 && R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('car', repos='https://cran.r-project.org/')" \
@@ -164,6 +165,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('hrbrmstr/qrencoder')\"" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mapview', repos='https://cran.r-project.org/')" \
+&& R CMD javareconf \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre'); install.packages('rJava', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mailR', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RPostgres', repos='https://cran.r-project.org/')" \
