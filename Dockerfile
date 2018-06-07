@@ -111,6 +111,10 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('curl', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('httr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
+&& rm /usr/local/include/semaphore.h \
+&& rm /usr/local/include/access.h \
+&& rm /usr/local/include/assert.h \
+&& rm /usr/local/include/bigendian.h \
 && R -e "options(unzip = 'internal'); devtools::install_github('rstudio/httpuv')" \
 && R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
