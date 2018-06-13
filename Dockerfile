@@ -19,18 +19,19 @@ WORKDIR /home/docker
 #RUN wget https://www.dropbox.com/s/xrkzdhm1cq0ll1q/microsoft-r-open-3.3.2.tar.gz?dl=1 -O microsoft-r-open-3.3.2.tar.gz \
 #&& echo "817aca692adffe20e590fc5218cb6992f24f29aa31864465569057534bce42c7 microsoft-r-open-3.3.2.tar.gz" > checksum.txt \
 
+
 # Download, valiate, and unpack
-RUN wget https://www.dropbox.com/s/4wyiwm2ohl2dyv7/microsoft-r-open-3.4.3.tar.gz?dl=1 -O microsoft-r-open-3.4.3.tar.gz \
-&& echo "BF2CD35A11DB604B1FA8F5F0C0ACF0AE05756020D90FB3F6CBB639337EFCEE5B microsoft-r-open-3.4.3.tar.gz" > checksum.txt \
+RUN wget https://www.dropbox.com/s/k42g2ra7ll46omp/microsoft-r-open-3.5.0.tar.gz?dl=1 -O microsoft-r-open-3.5.0.tar.gz \
+&& echo "C62672802A6ACED7729CFD3F71F8D3A9E3FEDD7FA6BCD3D87203ACDB6203D9B3 microsoft-r-open-3.5.0.tar.gz" > checksum.txt \
 	&& sha256sum -c --strict checksum.txt \
-	&& tar -xf microsoft-r-open-3.4.3.tar.gz \
+	&& tar -xf microsoft-r-open-3.5.0.tar.gz \
 	&& cd /home/docker/microsoft-r-open \
 	&& ./install.sh -a -u \
 	&& ls logs && cat logs/*
 
 # Clean up
 WORKDIR /home/docker
-RUN rm microsoft-r-open-3.4.3.tar.gz \
+RUN rm microsoft-r-open-3.5.0.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
 
