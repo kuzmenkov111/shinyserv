@@ -22,7 +22,7 @@ WORKDIR /home/docker
 
 # Download, valiate, and unpack
 RUN wget https://www.dropbox.com/s/k42g2ra7ll46omp/microsoft-r-open-3.5.0.tar.gz?dl=1 -O microsoft-r-open-3.5.0.tar.gz \
-&& echo "C62672802A6ACED7729CFD3F71F8D3A9E3FEDD7FA6BCD3D87203ACDB6203D9B3 microsoft-r-open-3.5.0.tar.gz" > checksum.txt \
+&& echo "7E1091587429C1545804B514269F4B0C588B85EC86052B512AAFD491DB797D93 microsoft-r-open-3.5.0.tar.gz" > checksum.txt \
 	&& sha256sum -c --strict checksum.txt \
 	&& tar -xf microsoft-r-open-3.5.0.tar.gz \
 	&& cd /home/docker/microsoft-r-open \
@@ -175,7 +175,11 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RPostgres', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('stringi', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('pool', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('DBI', repos='https://cran.r-project.org/')"
+&& R -e "install.packages('DBI', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('GoodmanKruskal', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('rjson', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('uuid', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('shinytoastr', repos='https://cran.r-project.org/')" 
 
 
 
