@@ -114,9 +114,9 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
 #&& R -e "install.packages('remotes', repos='https://cran.r-project.org/')" \
 #&& R -e "remotes::install_url('https://cran.r-project.org/src/contrib/httpuv_1.4.3.tar.gz')" \
-&& R -e "download.file('https://github.com/rstudio/httpuv/archive/master.zip', 'httpuv-master.zip'); unlink('httpuv-master', recursive = TRUE); unzip('httpuv-master.zip', unzip = '/usr/bin/unzip'); file.mode('httpuv-master/src/libuv/configure')" \
+#&& R -e "download.file('https://github.com/rstudio/httpuv/archive/master.zip', 'httpuv-master.zip'); unlink('httpuv-master', recursive = TRUE); unzip('httpuv-master.zip', unzip = '/usr/bin/unzip'); file.mode('httpuv-master/src/libuv/configure')" \
 #&& R -e "options(unzip = 'internal'); options(unzip = '/usr/bin/unzip'); devtools::install_github('rstudio/httpuv')" \
-&& R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
+#&& R -e "options(unzip = 'internal'); devtools::install_github('rstudio/shiny')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('car', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('fmsb', repos='https://cran.r-project.org/')" \
