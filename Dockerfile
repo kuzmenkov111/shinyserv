@@ -28,6 +28,7 @@ RUN wget https://www.dropbox.com/s/k42g2ra7ll46omp/microsoft-r-open-3.5.0.tar.gz
 	&& ./install.sh -a -u \
 	&& ls logs && cat logs/*
 
+
 # Clean up
 WORKDIR /home/docker
 RUN rm microsoft-r-open-3.5.0.tar.gz \
