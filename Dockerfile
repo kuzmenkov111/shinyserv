@@ -76,7 +76,7 @@ RUN sudo apt-add-repository -y ppa:webupd8team/java \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
 RUN sudo java -version
 
-COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
+#COPY Makeconf /usr/lib64/microsoft-r/3.4/lib64/R/etc/Makeconf
 # libproj-de
 #wget https://www.dropbox.com/s/hl0vx1f6rpfgxrx/shiny-server-1.5.3.838-amd64.deb?dl=1 -O shiny-server-1.5.3.838-amd64.deb
 
