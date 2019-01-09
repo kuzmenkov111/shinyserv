@@ -55,6 +55,7 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('promises', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ipc', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('Hmisc', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('RcppTOML', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('configr', repos='https://cran.r-project.org/')"
 
 
