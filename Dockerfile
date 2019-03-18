@@ -7,11 +7,9 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 #RUN R -e "download.file(url = 'http://cran.r-project.org/src/contrib/Archive/highcharter/highcharter_0.3.0.tar.gz', destfile = 'highcharter_0.3.0.tar.gz')"
 #RUN R -e "install.packages(pkgs='highcharter_0.3.0.tar.gz', type='source', repos=NULL)"
 #RUN R -e "unlink('highcharter_0.3.0.tar.gz')"
-&& R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('data.table', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('maptools', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('googleVis', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('future', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('callr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('future.callr', repos='https://cran.r-project.org/')" \
@@ -38,7 +36,7 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('raster', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('digest', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('bcrypt', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('hrbrmstr/qrencoder')\"" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('kuzmenkov111/qrencoder')\"" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mapview', repos='https://cran.r-project.org/')" \
 && R CMD javareconf \
@@ -56,7 +54,9 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ipc', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('Hmisc', repos='https://cran.r-project.org/')" \
 #&& R -e "install.packages('RcppTOML', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('configr', repos='https://cran.r-project.org/')"
+&& R -e "install.packages('configr', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('dreamRs/shinyparticles')\"" \
+&& R -e "install.packages('arules', repos='https://cran.r-project.org/')" \
 
 
 
