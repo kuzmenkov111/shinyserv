@@ -57,6 +57,7 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('configr', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('dreamRs/shinyparticles')\"" \
 && R -e "install.packages('arules', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('JohnCoene/waiter')\""
 
 
 
